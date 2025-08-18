@@ -60,17 +60,16 @@
       transition: all 2s ease;
       animation: img 7s infinite;
     }
-    
     .img:hover{
          filter:contrast(110%) hue-rotate(270deg) invert(20%) opacity(100%) saturate(150%); 
       background: #FF7DE5 ;
       box-shadow: 0 0 20px #FF7DE5 ;
     }
     @keyframes img{
-        0% {transform: scale(1) perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) ;}
-        25% {transform: scale(1.3) perspective(400px) rotateX(180deg)  rotateZ(180deg) scale(1.1) ;}
-        50% {transform: scale(1)}
-        100% {transform: scale(1) perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+        0% {transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) ;}
+        30% {transform: perspective(400px) rotateX(180deg) rotateY(180deg) rotateZ(180deg) translateY(50px);}
+        70% {transform: perspective(400px) translateY(70px);}
+        100% {transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
     }
     .title.show,.blue.show,.button.show{
        opacity: 1;
@@ -161,7 +160,8 @@
         opacity: 0;
         background-color: #00DDFF;
         color: black;
-        width:80%;
+        width:70%;
+        font-size:18px;
         border-radius: 20px;
         box-shadow: 0px 5px 10px #00DDFF;
         text-shadow: 0px 1px 1px;
@@ -186,67 +186,4 @@
     .box.show {
 	  opacity: 1;
       transform: perspective(400px) translateY(0px) rotateX(0deg) scale(1);
-	}      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      border: 3px ridge #1F00D4;
-      transition: transform 0.5s;
-      box-shadow: 0px 0px 15px blue;
-    }
-    .button:hover {
-      transform: perspective(400px) rotateX(25deg) rotateZ(10deg) scale(1.3);
-      background: #00C0FF;
-      filter: hue-rotate(100deg);
-    }
-    .blue {
-        opacity: 0;
-        transform: scale(0.5) translateY(-100px);
-
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      font-weight: bold;
-      color: #00ECFF;
-      text-shadow: 2px 0px 2px brown;
-      transition: transform 1s;
-      animation: blue 2s infinite;
-    }
-    @keyframes blue{
-        0% {text-shadow: 2px 2px 3px #0039FF;}
-        25% {text-shadow: -2px 2px 3px #006CFF }
-        50% {text-shadow: -2px -2px 3px #0039FF ;}
-        75% {text-shadow: 2px -2px 3px #006CFF ;}
-        100% {text-shadow: 2px 2px 3px #0039FF;}
-    }
-    .blue:hover{
-      transform : scale(1.10);
-      filter: hue-rotate(30deg);
-    }
-    .box{
-        opacity: 0;
-        background-color: #00DDFF;
-        color: black;
-        border-radius: 20px;
-        box-shadow: 0px 5px 10px #00DDFF;
-        text-shadow: 0px 1px 1px;
-        text-align: center;
-        transition: all 2s ease;
-        margin: 20px;
-        margin-top: 50px;
-        padding: 20px;
-  	  user-select: text;
-        transform: perspective(400px) translateY(100px) rotateX(180deg) scale(0);
-    }
-    .box:hover{
-        filter:hue-rotate(360deg) invert(0%);
-        color: #00DDFF;
-        background-color: rgba(100,100,100,0.2);
-        box-shadow: 0px 10px 0px rgba(200,200,200,0.2);
-        border-radius: 10px;
-    }
-    .box:active{
-        filter:hue-rotate(360deg) invert(100%);
-    }
-    .box.show {
-	  opacity: 1;
-      transform: perspective(400px) translateY(0px) rotateX(0deg) scale(1);
-      }
+		}
