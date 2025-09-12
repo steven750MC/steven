@@ -1,6 +1,6 @@
 	html{
         background:linear-gradient(to left,black,#003040);
-        /*   filter:hue-rotate(100deg);   */
+         /*filter:hue-rotate(150deg); */
         position:relative;
         z-index: 0;
         height: 100%;
@@ -10,6 +10,7 @@
         scroll-behavior: smooth;
     }
 	body {
+        box-shadow: inset 0 0 20px black;
       display:relative;
       /*flex-direction: column;*/
       align-items:center;
@@ -73,22 +74,29 @@
       padding: 40px 20px 20px;
     }
     .img {
-      background: #82FAFF;
-      width: 160px;
-      border-radius: 200px;
-      box-shadow: 0 0 20px #82FAFF;
-      transition: all 2s ease;
+	  margin-top: 20px;
+	  z-index: 11;
+	  width: 160px;
+	  height: 160px;
+	  border-radius: 50%;
+	  box-shadow: 0 0 10px black;
+	  /* Gradient بزرگتر از عنصر */
+	  background: linear-gradient(90deg, #82FAFF, #FF6060 ,#FF6060, #82FAFF);
+	  background-size: 200% 200%; /* اندازه بزرگتر برای حرکت */
+	  background-position: 0% 0%; /* شروع */
       animation: img 10s infinite;
-    }
-    .img:hover{
-         filter:contrast(110%) hue-rotate(270deg) invert(20%) opacity(100%) saturate(150%); 
-      background: #FF7DE5 ;
-      box-shadow: 0 0 20px #FF7DE5 ;
-    }
+	  transition: background-position 2s ease, border-radius 2s ease;
+	}
+
+	.img:hover {
+	  /* تغییر موقعیت background برای حس حرکت زاویه */
+	  background-position: 100% 100%;
+	  border-radius: 10%;
+	}
     @keyframes img{
         0% {transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) ;}
-        30% {transform: perspective(400px) rotateX(180deg) rotateY(180deg) rotateZ(180deg) translateY(50px);}
-        70% {transform: perspective(400px) translateY(70px);}
+        30% {transform: perspective(400px) rotateZ(10deg) rotateY(18deg) translateY(-10px);}
+        70% {transform: perspective(400px) rotateY(20deg) translateY(10px);}
         100% {transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
     }
     .title.show,.blue.show,.button.show{
@@ -129,19 +137,21 @@
     .button {
         opacity: 0;
         transform: scale(0.5) translateY(-100px);
-      display: inline-block;
+      display: block;
+      backdrop-filter: blur(3px) brightness(120%);
+        will-change: backdrop-filter;
+      background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.1), rgba(255,255,255,0.2));
       width: 130px;
       margin: 10px;
       padding: 15px 30px;
-      background: #000000;
-      background: linear-gradient(to right, #22FEFF, #00FCFA, #00CCFA);
-      color: black;
+      /*background: linear-gradient(to right, #22FEFF, #00FCFA, #00CCFA);*/
+      color: #55EAFF;
       text-decoration: none;
       border-radius: 10px;
       font-weight: bold;
-      border: 3px groove #0050AA;
+      /*border: 3px groove #0050AA;*/
       transition: transform 0.5s;
-      box-shadow: 0px 0px 15px black;
+      box-shadow: 0px 5px 25px rgba(100,200,255,0.5);
     }
     @keyframes button {
         0%{filter: hue-rotate(360deg);}
@@ -150,7 +160,10 @@
     }
     .button:hover {
       transform: scale(1.3);
-      animation:button 5s infinite;
+      animation:button 3s infinite;
+    }
+    .button:active{
+      transform: scale(0.8);
     }
     .blue {
         opacity: 0;
@@ -211,7 +224,20 @@
       height: 100px;
       background: linear-gradient(to top, black,rgba(0,0,0,0.5), rgba(0,0,0,0));
     }
-    
+    .half{
+      z-index:10;
+      position: fixed;
+      backdrop-filter: hue-rotate(120deg) brightness(110%);
+      width:50%;
+      height:100vh;
+      top:0;
+      right:0;
+      transition:all 2s ease;
+    }
+
+    .go{
+        transform:/*perspective(400px)*/ rotateZ(180deg) scaleX(0);
+    }
     
     
     
