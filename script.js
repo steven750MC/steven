@@ -12,19 +12,10 @@ elements.forEach(el => {
   observer.observe(el);
 });
 
+let half = document.getElementById("half");
+half.addEventListener("click", function(){ half.classList.add("go"); });
 
-const text = "steven750MC";
-let i = 0;
 
-function type() {
-  if (i < text.length) {
-    document.getElementById("title").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 150);
-  }
-}
-
-window.addEventListener("load", type);
 
 
 	    console.log("JavaScript Connected Succesfully.");
@@ -236,4 +227,4 @@ function s() {
   }
 }
 
-s();
+s(); 
