@@ -188,6 +188,7 @@
       filter: hue-rotate(-10deg);
     }
     .box{
+        backdrop-filter: blur(3px);
         opacity: 0;
         background-color: #00DDFF;
         color: black;
@@ -225,6 +226,7 @@
     }
     .half{
       z-index:10;
+      pointer-events: none;
       position: fixed;
       backdrop-filter: hue-rotate(120deg) brightness(110%);
       width:50%;
@@ -232,15 +234,4 @@
       top:0;
       right:0;
       transition:all 2s ease;
-    }
-
-    .go{
-        transform:/*perspective(400px)*/ rotateZ(180deg) scaleX(0);
-    }
-    
-    
-    
-    
-    
-    
-    
+	} 
