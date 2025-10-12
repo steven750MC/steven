@@ -1,4 +1,5 @@
-	html{
+	*{-webkit-tap-highlight-color: transparent; }
+    html{
         background:linear-gradient(to left,black,#003040);
          /*filter:hue-rotate(150deg); */
         position:relative;
@@ -234,4 +235,4 @@
       top:0;
       right:0;
       transition:all 2s ease;
-	} 
+		}
