@@ -1,4 +1,4 @@
-const elements = document.querySelectorAll('body, .title, .box, .blue, .button');
+const elements = document.querySelectorAll('body, .title, .box, .blue, .button, .right,.left');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -12,8 +12,8 @@ elements.forEach(el => {
   observer.observe(el);
 });
 
-let half = document.getElementById("half");
-half.addEventListener("click", function(){ half.classList.add("go"); });
+/*let half = document.getElementById("half");
+half.addEventListener("click", function(){ half.classList.add("go"); });*/
 
 
 
@@ -227,4 +227,4 @@ function s() {
   }
 }
 
-s(); 
+s();
