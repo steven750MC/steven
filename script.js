@@ -15,7 +15,54 @@ elements.forEach(el => {
 /*let half = document.getElementById("half");
 half.addEventListener("click", function(){ half.classList.add("go"); });*/
 
-
+// ایجاد افکت کلیک در سراسر صفحه
+(() => {
+  'use strict';
+  
+  const createClickEffect = (x, y) => {
+    const effect = document.createElement('div');
+    const size = Math.max(window.innerWidth, window.innerHeight) * 0.2;
+    
+    effect.className = 'click-effect';
+    effect.style.cssText = `
+      position: fixed;
+      top: ${y}px;
+      left: ${x}px;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: radial-gradient(rgba(100,100,255,1),transparent);
+      pointer-events: none;
+      z-index: 9;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      backdrop-filter: saturate(100%);
+      -webkit-backdrop-filter: ;
+      mix-blend-mode: exclusion;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.5s ease-out;
+    `;
+    
+    document.body.appendChild(effect);
+    
+    requestAnimationFrame(() => {
+      effect.style.width = `${size}px`;
+      effect.style.height = `${size}px`;
+      effect.style.opacity = '0';
+    });
+    
+    setTimeout(() => effect.remove(), 700);
+  };
+  
+  // رویداد کلیک
+  document.addEventListener('click', e => createClickEffect(e.clientX, e.clientY));
+  
+  // رویداد لمسی برای موبایل
+  document.addEventListener('touchstart', e => {
+    const touch = e.touches[0];
+    createClickEffect(touch.clientX, touch.clientY);
+  });
+})();
 
 
 	    console.log("JavaScript Connected Succesfully.");
