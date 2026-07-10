@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>   </title>
+    <title>استیکرساز سروش پلاس</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="">
@@ -18,7 +18,24 @@
     <meta property="og:url" content="https://channelcenter.ir/stickers/eitaa" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fa_IR">
-    
+    <script>(function () {
+    const ua = navigator.userAgent.toLowerCase();
+
+    // تشخیص WebView (نمونه‌های رایج)
+    const isWebView = ua.includes("soroush") && !ua.includes("chrome");
+
+    if (isWebView) {
+        // گرفتن آدرس کامل صفحه فعلی
+        const currentUrl = window.location.href;
+        const currentHost = window.location.host;
+        const currentPath = window.location.pathname + window.location.search + window.location.hash;
+        
+        // ساخت Intent URL با استفاده از آدرس صفحه فعلی
+        const intentUrl = `intent://${currentHost}${currentPath}#Intent;scheme=https;package=com.android.chrome;end`;
+        
+        window.location.href = intentUrl;
+    }
+})();</script>
 <style>html{display:relative;filter:hue-rotate(var(--rotate))}#theme{z-index:1000;right:0;top:0px;position: fixed ;background: gray;border-radius:100px;width:30px;height:30px;border-top-right-radius:0;box-shadow:0px 2px 5px gray;opacity:0.5;transition:all 0.5s ease}  #theme:active{transform:scale(2);filter:brightness(150%)} #light{pointer-events:none;z-index:2000;position: fixed;top:-50%;right:-50%;transform: scale(0) rotateZ(110deg) rotateY(120deg) rotateX(50deg) ;backdrop-filter:invert(100%);width:100%;height:100%;transition: all 1s ease;border-radius:1000px;} :root{--exept:0%;--rotate:0deg;} img,iframe,video,svg{filter:invert(var(--exept)) hue-rotate(var(--rotate));transition:all 0.8s ease;}</style>
 <div id="light"></div><div id="theme" ></div><script>let light = document.getElementById("light");let theme = document.getElementById("theme");let t = false; let t2 = false; theme.addEventListener("click",function(){ if (t==false){t=true;light.style.transform="scale(2) rotateZ(0deg) rotateY(0deg) rotateX(0deg)";document.documentElement.style.setProperty('--exept', '100%');document.documentElement.style.setProperty('--rotate', '180deg');light.style.borderRadius="0px"} else {t=false;light.style.transform="scale(0) rotateZ(110deg) rotateY(120deg) rotateX(50deg)";light.style.borderRadius="1000px";document.documentElement.style.setProperty('--exept', '0%');document.documentElement.style.setProperty('--rotate', '0deg');} });</script>
   
